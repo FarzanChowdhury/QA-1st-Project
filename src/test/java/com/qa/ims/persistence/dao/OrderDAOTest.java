@@ -18,7 +18,7 @@ private final OrderDAO orderDAO = new OrderDAO();
 	@Before
 	public void setup() {
 		DBUtils.connect();
-		DBUtils.getInstance().init("src/test/resources/IMS-Project-Test-Order.sql");
+		DBUtils.getInstance().init("src/test/resources/IMS-Project-Test-Schema.sql", "src/test/resources/IMS-Project-Test-Data.sql");
 	}
 	
 	@Test

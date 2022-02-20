@@ -3,6 +3,7 @@ package com.qa.ims.controller;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.qa.ims.persistence.domain.Domain;
 import com.qa.ims.utils.Utils;
 
 /**
@@ -13,7 +14,8 @@ import com.qa.ims.utils.Utils;
 public enum Action {
 	CREATE("To save a new entity into the database"), READ("To read an entity from the database"),
 	UPDATE("To change an entity already in the database"), DELETE("To remove an entity from the database"),
-	RETURN("To return to domain selection");
+	ADDITEM("To add an item to an order"), DELETEITEM("To remove an item from an order"),
+	COST("To calculate the total cost of an order"), RETURN("To return to domain selection");
 
 	public static final Logger LOGGER = LogManager.getLogger();
 
@@ -22,7 +24,7 @@ public enum Action {
 	Action(String description) {
 		this.description = description;
 	}
-
+	
 	/**
 	 * Describes the action
 	 */
@@ -33,9 +35,19 @@ public enum Action {
 	/**
 	 * Prints out all possible actions
 	 */
-	public static void printActions() {
+	public static void printActions(Domain CurrentDomain) {
 		for (Action action : Action.values()) {
-			LOGGER.info(action.getDescription());
+			if (CurrentDomain.name().equals("ORDER") && !action.equals(UPDATE)) { //update doesn't show in order
+				LOGGER.info(action.getDescription());
+			} else if (!action.equals(Action.COST) && !action.equals(Action.DELETEITEM)
+					&& !action.equals(Action.ADDITEM)) {
+				if (CurrentDomain.name().equals("ORDER") && !action.equals(UPDATE)) { //add item, delete item and cost shows in order
+					LOGGER.info(action.getDescription());
+				}else if(!CurrentDomain.name().equals("ORDER")) {
+					LOGGER.info(action.getDescription());
+				}
+			}
+
 		}
 	}
 

@@ -57,7 +57,7 @@ INSERT INTO `ims`.`items` (`item_name`, `item_value`) VALUES ('mouse', 45);
 INSERT INTO `ims`.`items` (`item_name`, `item_value`) VALUES ('shirt', 28);
 INSERT INTO `ims`.`items` (`item_name`, `item_value`) VALUES ('jeans', 25);
 
-INSERT INTO `ims`.`order_items` (`fk_order_id`, `fk_item_id`, `quantity`) VALUES (8, 5, 5);
+INSERT INTO `ims`.`order_items` (`fk_order_id`, `fk_item_id`, `quantity`) VALUES (1, 1, 5);
 INSERT INTO `ims`.`order_items` (`fk_order_id`, `fk_item_id`, `quantity`) VALUES (6, 7, 8);
 INSERT INTO `ims`.`order_items` (`fk_order_id`, `fk_item_id`, `quantity`) VALUES (1, 3, 2);
 INSERT INTO `ims`.`order_items` (`fk_order_id`, `fk_item_id`, `quantity`) VALUES (4, 2, 4);

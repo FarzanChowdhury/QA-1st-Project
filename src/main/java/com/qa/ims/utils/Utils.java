@@ -52,4 +52,11 @@ public class Utils {
 		return doubleInput;
 	}
 
+
+
+	public float getFloat() {
+		float f = scanner.nextFloat();		//For nextline in console for calculator (float)
+		scanner.nextLine();
+		return f;
+	}	
 }
